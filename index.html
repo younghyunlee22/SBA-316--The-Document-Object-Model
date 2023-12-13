@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pomodoro Planner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat&family=Victor+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+    crossorigin="anonymous"
+  />
+    <link href="style.css" rel="stylesheet" type="text/css" />
+    <link rel="/images/apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
+    <link rel="manifest" href="./images/site.webmanifest">
+
+  </head>
+  <body>
+
+<body>
+
+  <div id="wrapper">
+    <label for="username">Your name: </label>
+    <input id="username" type="text" minlength="2" maxlength="10" />
+    <button id="username-button" class="button">Enter</button>
+    <br/>
+
+    <h1 class="plannerTitle">Pomodoro Planner</h1>
+
+    <div id="input-section">
+      <p class="instruction">Enter duration and task:</p>
+      <form
+      name="pomodoro-form"
+      id="pomodoro-form"
+    >
+      <input type="number" name="minute" value="25" placeholder="Minutes" />
+      <input type="text" name="task" placeholder="Enter a single task to work on" />
+      <input type="submit" value="Submit" />
+      </form>
+    </div>
+    <p>Your plan for today: </p>
+    <div class="pomodoro-list">
+
+      <ol id="task-list"></ol>
+    </div>  
+  </div>
+
+  <button id="duplicate-button">Duplicate your current plan</button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
