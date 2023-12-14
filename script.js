@@ -17,30 +17,44 @@ console.log(myForm);
 
 const tasks = [];
 let taskList = document.getElementById("child-ol");
-console.log(taskList);
 
 myForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const minutes = myForm.minute.value;
   const task = myForm.task.value;
+  const isValid = validateTaskForm(minutes, task);
+  if (isValid) {
+    const newLi = document.createElement("li");
+    newLi.innerHTML = `For ${minutes} minutes: ${task}.`;
+    taskList.appendChild(newLi);
 
-  const newLi = document.createElement("li");
-  newLi.innerHTML = `For ${minutes} minutes: ${task}.`;
-  taskList.appendChild(newLi);
-  tasks.push(task);
-
-  const breakTime = document.createElement("p");
-  if (tasks.length % 4 == 0) {
-    breakTime.innerHTML = `Take a 20-minute break. <br/>
+    const liCollection = document.querySelectorAll("#child-ol li");
+    const breakTime = document.createElement("p");
+    liCollection.forEach((item, index) => {
+      if ((index + 1) % 4 == 0) {
+        breakTime.innerHTML = `Take a 20-minute break. <br/>
     <img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"><img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"><img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"><img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon">`;
-    newLi.appendChild(breakTime);
-  } else {
-    breakTime.innerHTML = `Take a 5-minute break.`;
-    newLi.appendChild(breakTime);
+        newLi.appendChild(breakTime);
+      } else {
+        breakTime.innerHTML = `Take a 5-minute break.`;
+        newLi.appendChild(breakTime);
+      }
+    });
   }
 });
 
-// function validateTaskForm() {}
+function validateTaskForm(minutes, task) {
+  if (minutes < 4 || minutes > 90) {
+    alert("mininum 5 mins, maximum 90 mins");
+    return false;
+  }
+  if (task.trim() == "") {
+    alert("Enter a task");
+    return false;
+  }
+  return true;
+}
+
 const nodeCurrPlan = document.querySelector(".pomodoro-list");
 const duplicateButton = document.getElementById("duplicate-button");
 duplicateButton.addEventListener("click", function () {

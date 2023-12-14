@@ -49,12 +49,16 @@
           Make a pomodoro set(4 tasks). <br />
           Each task will be followed by a 5-minute break. <br />
           A 20-minute break will be added after a set.<br />
+          Make more sets if you want. <br />
+          You can duplicate your current set(s) to the end of the list <br />
+          by clicking on 'Duplicate the pomodoro set' button.
         </p>
         <form name="pomodoro-form" id="pomodoro-form">
-          <input type="number" name="minute" value="25" placeholder="Minutes" />
+          <input type="number" name="minute" size="7" placeholder="Minutes" />
           <input
             type="text"
             name="task"
+            size="30"
             placeholder="Enter a single task to work on"
           />
           <input type="submit" value="Add Task" />
