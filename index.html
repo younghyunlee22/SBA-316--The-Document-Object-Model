@@ -42,7 +42,14 @@
 
       <div id="input-section">
         <label for="username">Your name: </label>
-        <input id="username" type="text" minlength="2" maxlength="10" />
+        <!--input with HTML attribute validation-->
+        <input
+          id="username"
+          type="text"
+          minlength="2"
+          maxlength="10"
+          required
+        />
         <button id="username-button" class="button">Enter</button>
         <br />
         <p class="instruction">
@@ -71,7 +78,7 @@
         </form>
       </div>
       <form id="font-options">
-        <div>
+        <div style="padding-left: 50px">
           <label for="font">Choose font style:</label>
           <select name="font" id="font">
             <option value="montserrat">Montserrat</option>
@@ -87,7 +94,7 @@
       </div>
     </div>
     <button id="duplicate-button">Duplicate the pomodoro set</button>
-    <button id="undo-duplicate">Undo</button>
+    <button id="undo-duplicate">Delete the most recent duplicate</button>
     <script src="script.js"></script>
   </body>
 </html>

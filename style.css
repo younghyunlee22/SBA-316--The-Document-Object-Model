@@ -30,6 +30,7 @@ input {
   height: 22px;
   transition: all 150ms ease-in-out 0s;
 }
+
 button:hover {
   color: rgb(61, 79, 88);
   background-color: rgb(255, 255, 255);
@@ -45,4 +46,12 @@ h1,
 h2 {
   color: #8e0050;
   font-family: "Montserrat", sans-serif;
+}
+
+.remove-button {
+  margin-left: 10px;
+}
+
+.instruction {
+  padding: 5px;
 }

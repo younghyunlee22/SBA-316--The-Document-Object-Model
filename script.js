@@ -1,21 +1,19 @@
 let userName = document.getElementById("username");
-console.log(userName);
 
 let plannerTitle = document.querySelector(".title");
-console.log(plannerTitle);
 
 const tomatoIcon = document.getElementById("tomato-icon");
 
 const enterButton = document.getElementById("username-button");
+
+// Plug in username into innerHTML
 enterButton.addEventListener("click", function () {
   const inputUserName = userName.value;
   plannerTitle.innerHTML = `<img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> ${inputUserName}'s pomodoro plan for today <img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> `;
 });
 
 let myForm = document.getElementById("pomodoro-form");
-console.log(myForm);
 
-const tasks = [];
 let taskList = document.getElementById("child-ol");
 
 myForm.addEventListener("submit", function (e) {
@@ -23,13 +21,16 @@ myForm.addEventListener("submit", function (e) {
   const minutes = myForm.minute.value;
   const task = myForm.task.value;
   const isValid = validateTaskForm(minutes, task);
+
   if (isValid) {
     const newLi = document.createElement("li");
-    newLi.innerHTML = `For ${minutes} minutes: ${task}.`;
+    newLi.innerHTML = `For ${minutes} minutes: ${task}.<button class="remove-button">Remove</button>`;
     taskList.appendChild(newLi);
 
     const liCollection = document.querySelectorAll("#child-ol li");
+
     const breakTime = document.createElement("p");
+    // Iterate over a collection of elements to add a break time to the list
     liCollection.forEach((item, index) => {
       if ((index + 1) % 4 == 0) {
         breakTime.innerHTML = `Take a 20-minute break. <br/>
@@ -43,8 +44,10 @@ myForm.addEventListener("submit", function (e) {
   }
 });
 
+// DOM event-based validation
 function validateTaskForm(minutes, task) {
   if (minutes < 4 || minutes > 90) {
+    // BOM 1. alert
     alert("mininum 5 mins, maximum 90 mins");
     return false;
   }
@@ -55,13 +58,30 @@ function validateTaskForm(minutes, task) {
   return true;
 }
 
+// Remove a task
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("remove-button")) {
+    const taskItem = event.target.closest("li");
+    if (taskItem) {
+      taskItem.remove();
+    }
+  }
+});
+
+// HTML templating with the cloneNode method, Use appendChild
 const nodeCurrPlan = document.querySelector(".pomodoro-list");
 const duplicateButton = document.getElementById("duplicate-button");
 duplicateButton.addEventListener("click", function () {
+  // BOM 2. confirm
+  const confirmation = confirm("Do you want to duplicate?");
+  if (confirmation == false) {
+    return;
+  }
   const clone = taskList.cloneNode(true);
   nodeCurrPlan.appendChild(clone);
 });
 
+// Remove the last child
 const undoButton = document.getElementById("undo-duplicate");
 undoButton.addEventListener("click", function () {
   console.log("lastChild", nodeCurrPlan.lastChild);
@@ -69,10 +89,11 @@ undoButton.addEventListener("click", function () {
   nodeCurrPlan.removeChild(duplicatedChild);
 });
 
+// Modify font-family attribute in response to user interaction
+// Modify the style of a div element in response to user interaction
 const fontOptionsForm = document.getElementById("font-options");
 const fontSelect = document.getElementById("font");
 
-// Add an event listener for form submission
 fontOptionsForm.addEventListener("change", function (event) {
   event.preventDefault();
 
