@@ -11,50 +11,63 @@
       rel="stylesheet"
     />
     <link
-    rel="stylesheet"
-    href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
-    integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
-    crossorigin="anonymous"
-  />
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"
+      integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm"
+      crossorigin="anonymous"
+    />
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="/images/apple-touch-icon" sizes="180x180" href="./images/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./images/favicon-16x16.png">
-    <link rel="manifest" href="./images/site.webmanifest">
-
+    <link
+      rel="/images/apple-touch-icon"
+      sizes="180x180"
+      href="./images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="./images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="./images/site.webmanifest" />
   </head>
   <body>
+    <div id="wrapper">
+      <h1 class="plannerTitle">Pomodoro Planner</h1>
 
-<body>
-
-  <div id="wrapper">
-    <label for="username">Your name: </label>
-    <input id="username" type="text" minlength="2" maxlength="10" />
-    <button id="username-button" class="button">Enter</button>
-    <br/>
-
-    <h1 class="plannerTitle">Pomodoro Planner</h1>
-
-    <div id="input-section">
-      <p class="instruction">Enter duration and task:</p>
-      <form
-      name="pomodoro-form"
-      id="pomodoro-form"
-    >
-      <input type="number" name="minute" value="25" placeholder="Minutes" />
-      <input type="text" name="task" placeholder="Enter a single task to work on" />
-      <input type="submit" value="Submit" />
-      </form>
+      <div id="input-section">
+        <label for="username">Your name: </label>
+        <input id="username" type="text" minlength="2" maxlength="10" />
+        <button id="username-button" class="button">Enter</button>
+        <br />
+        <p class="instruction">
+          Make a pomodoro set(4 tasks). <br />
+          Each task will be followed by a 5-minute break. <br />
+          A 20-minute break will be added after a set.<br />
+        </p>
+        <form name="pomodoro-form" id="pomodoro-form">
+          <input type="number" name="minute" value="25" placeholder="Minutes" />
+          <input
+            type="text"
+            name="task"
+            placeholder="Enter a single task to work on"
+          />
+          <input type="submit" value="Add Task" />
+        </form>
+      </div>
+      <h2 class="title">Your plan for today:</h2>
+      <div id="parent-list" class="pomodoro-list">
+        <ol id="child-ol" class="task-list"></ol>
+        <div id="child-list"></div>
+      </div>
     </div>
-    <p>Your plan for today: </p>
-    <div class="pomodoro-list">
-
-      <ol id="task-list"></ol>
-    </div>  
-  </div>
-
-  <button id="duplicate-button">Duplicate your current plan</button>
-
+    <button id="duplicate-button">Duplicate the pomodoro set</button>
+    <button id="undo-duplicate">Undo</button>
     <script src="script.js"></script>
   </body>
 </html>
