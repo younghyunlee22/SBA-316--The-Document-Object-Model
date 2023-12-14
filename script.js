@@ -68,3 +68,15 @@ undoButton.addEventListener("click", function () {
   const duplicatedChild = nodeCurrPlan.lastChild;
   nodeCurrPlan.removeChild(duplicatedChild);
 });
+
+const fontOptionsForm = document.getElementById("font-options");
+const fontSelect = document.getElementById("font");
+
+// Add an event listener for form submission
+fontOptionsForm.addEventListener("change", function (event) {
+  event.preventDefault();
+
+  const selectedFont = fontSelect.value;
+  const listDiv = document.getElementById("parent-list");
+  listDiv.style.fontFamily = `${selectedFont}`;
+});

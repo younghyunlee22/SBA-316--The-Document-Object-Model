@@ -54,7 +54,13 @@
           by clicking on 'Duplicate the pomodoro set' button.
         </p>
         <form name="pomodoro-form" id="pomodoro-form">
-          <input type="number" name="minute" size="7" placeholder="Minutes" />
+          <input
+            type="number"
+            name="minute"
+            value="25"
+            size="7"
+            placeholder="Minutes"
+          />
           <input
             type="text"
             name="task"
@@ -64,6 +70,16 @@
           <input type="submit" value="Add Task" />
         </form>
       </div>
+      <form id="font-options">
+        <div>
+          <label for="font">Choose font style:</label>
+          <select name="font" id="font">
+            <option value="montserrat">Montserrat</option>
+            <option value="sans-serif">Sans-serif</option>
+            <option value="monospace">Monospace</option>
+          </select>
+        </div>
+      </form>
       <h2 class="title">Your plan for today:</h2>
       <div id="parent-list" class="pomodoro-list">
         <ol id="child-ol" class="task-list"></ol>
