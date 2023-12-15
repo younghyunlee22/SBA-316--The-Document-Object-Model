@@ -37,20 +37,22 @@
     <link rel="manifest" href="./images/site.webmanifest" />
   </head>
   <body>
-    <div id="wrapper">
+    <div id="wrapper" class="wrapper">
       <h1 class="plannerTitle">Pomodoro Planner</h1>
 
       <div id="input-section">
-        <label for="username">Your name: </label>
-        <!--input with HTML attribute validation-->
-        <input
-          id="username"
-          type="text"
-          minlength="2"
-          maxlength="10"
-          required
-        />
-        <button id="username-button" class="button">Enter</button>
+        <form action="#">
+          <label for="username">Your name: </label>
+          <!--input with HTML attribute validation-->
+          <input
+            id="username"
+            type="text"
+            minlength="2"
+            maxlength="15"
+            required
+          />
+          <button id="username-button" class="button">Enter</button>
+        </form>
         <br />
         <p class="instruction">
           Make a pomodoro set(4 tasks). <br />
@@ -61,18 +63,13 @@
           by clicking on 'Duplicate the pomodoro set' button.
         </p>
         <form name="pomodoro-form" id="pomodoro-form">
-          <input
-            type="number"
-            name="minute"
-            value="25"
-            size="7"
-            placeholder="Minutes"
-          />
+          <input type="number" name="minute" size="7" placeholder="Minutes" />
           <input
             type="text"
             name="task"
             size="30"
             placeholder="Enter a single task to work on"
+            onclick="clearInput()"
           />
           <input type="submit" value="Add Task" />
         </form>

@@ -9,7 +9,10 @@ const enterButton = document.getElementById("username-button");
 // Plug in username into innerHTML
 enterButton.addEventListener("click", function () {
   const inputUserName = userName.value;
-  plannerTitle.innerHTML = `<img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> ${inputUserName}'s pomodoro plan for today <img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> `;
+  console.log(inputUserName.length);
+  if (inputUserName.length > 1 && inputUserName.length < 16) {
+    plannerTitle.innerHTML = `<img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> ${inputUserName}'s pomodoro plan for today <img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> `;
+  }
 });
 
 let myForm = document.getElementById("pomodoro-form");
@@ -44,9 +47,13 @@ myForm.addEventListener("submit", function (e) {
   }
 });
 
+function clearInput() {
+  myForm.task.value = "";
+}
+
 // DOM event-based validation
 function validateTaskForm(minutes, task) {
-  if (minutes < 4 || minutes > 90) {
+  if (minutes < 5 || minutes > 90) {
     // BOM 1. alert
     alert("mininum 5 mins, maximum 90 mins");
     return false;
