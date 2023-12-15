@@ -19,7 +19,6 @@ let myForm = document.getElementById("pomodoro-form");
 
 let taskList = document.getElementById("child-ol");
 
-let tasks = [];
 myForm.addEventListener("submit", function (e) {
   e.preventDefault();
   const minutes = myForm.minute.value;
@@ -44,8 +43,6 @@ myForm.addEventListener("submit", function (e) {
         breakTime.innerHTML = `Take a 5-minute break.`;
         newLi.appendChild(breakTime);
       }
-      const tasks = Array.from(liCollection).map((li) => li);
-      localStorage.setItem("tasks", JSON.stringify(tasks));
     });
   }
 });
@@ -71,7 +68,7 @@ function validateTaskForm(minutes, task) {
 // Remove a task
 document.addEventListener("click", function (e) {
   if (e.target.classList.contains("remove-button")) {
-    const taskItem = event.target.closest("li");
+    const taskItem = e.target.closest("li");
     if (taskItem) {
       taskItem.remove();
     }
