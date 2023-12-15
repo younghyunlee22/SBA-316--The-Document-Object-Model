@@ -7,8 +7,7 @@ const tomatoIcon = document.getElementById("tomato-icon");
 const enterButton = document.getElementById("username-button");
 
 // Plug in username into innerHTML
-enterButton.addEventListener("click", function (e) {
-  e.preventDefault();
+enterButton.addEventListener("click", function () {
   const inputUserName = userName.value;
   if (inputUserName.length > 1 && inputUserName.length < 16) {
     plannerTitle.innerHTML = `<img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> ${inputUserName}'s pomodoro plan for today <img id="tomato-icon" src="./images/favicon-32x32.png" alt="tomato-icon"> `;
